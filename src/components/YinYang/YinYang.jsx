@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled,{keyframes} from "styled-components";
-import { Yinyang } from "./svgs";
+import { Yinyang } from "./Svgs";
 import { useNavigate } from "react-router-dom";
 
 const clickAnimation = keyframes`
