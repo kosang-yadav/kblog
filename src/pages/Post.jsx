@@ -45,7 +45,7 @@ export default function Post() {
     };
 
     return post ? (
-        <div  className="py-6 w-screen bg-[url('../../public/mob-back.jpg')] md:bg-[url('../../public/full-back.webp')] bg-no-repeat bg-cover bg-center bg-fixed text-black " >
+        <div  className="py-6 w-screen bg-[url('../../public/static/images/mob-back.jpg')] md:bg-[url('../../public/static/images/full-back.webp')] bg-no-repeat bg-cover bg-center bg-fixed text-black " >
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border-2 rounded-xl p-2">
                     <img
