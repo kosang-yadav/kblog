@@ -2,7 +2,8 @@ import { Container, PostCard } from "../components";
 import { useState, useEffect } from "react";
 import databaseService from "../appwrite/confige";
 import { useSelector } from "react-redux";
-import { YinYang, Loader } from "../components"
+import { YinYang, Loader, Button } from "../components"
+import { useNavigate } from "react-router-dom";
 
 const baka = "baka"
 
@@ -11,6 +12,7 @@ export default function Home(){
     const [loading, setLoading] = useState(false)
     const [posts, setPosts] = useState([])
     const userData = useSelector( state => state.userData)
+    const navigate = useNavigate()
 
 
     useEffect( () => {
@@ -31,7 +33,7 @@ export default function Home(){
         </div>
     ) : (
         <div className="sm:mx-2 w-fit sm:w-full md:px-6 min-h-screen  py-8">
-            <div className="text-3xl font-semibold text-left mx-2 sm:ml-6">Welcome Back <br/><span className="text-red-500 font-black text-5xl hover:text-7xl ">{userData.name}</span>,&nbsp;<br/>How's your day Today...<br/> <br /> <div className="text-right"> <h1>Your Posts</h1>  </div></div>
+            <div className="text-3xl font-semibold text-left mx-2 sm:ml-6">Welcome Back <br/><span className="text-red-500 font-black text-5xl hover:text-7xl ">{userData.name}</span>,&nbsp;<br/>How's your day Today...<br/> <br /> <div className="text-right pr-5 text-1xl sm:text-4xl"> <h1>Your Posts</h1>  </div></div>
             <Container>
                 <div className="flex flex-wrap w-full my-10 mx-2 sm:ml-6 sm:mr-4">
                     { posts.map( (post) => (
@@ -41,6 +43,9 @@ export default function Home(){
                         </div>)
                         : null
                     ) ) }
+                </div>
+                <div className="w-full flex justify-center my-8">
+                    <Button type="button" className="text-3xl font-bold px-8 bg-red-500" onClick={() => navigate("/add-post") } > New Post </Button>
                 </div>
             </Container>
         </div>
