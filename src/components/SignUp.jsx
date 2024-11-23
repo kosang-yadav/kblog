@@ -49,7 +49,7 @@ function SignUp(){
                 const userData = await authService.getUser();
                 if(userData) dispatch(authlogIn(userData)); //971046
                 setLoading(false)
-                // navigate("/");
+                navigate("/");
                 window.location.reload();
             }
         } catch (error) {
