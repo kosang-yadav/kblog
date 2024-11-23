@@ -24,10 +24,10 @@ function Login(){
                 if(userData){
                     dispatch(authlogIn(userData));
                     navigate("/");
-                    setLoading(false);
                     window.location.reload();
                 }
             }
+            setLoading(false);
         } catch (error) {
             setError(error.message)
         }
