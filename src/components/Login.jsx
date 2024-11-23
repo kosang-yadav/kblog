@@ -26,7 +26,7 @@ function Login(){
                     navigate("/");
                     window.location.reload();
                 }
-            }
+            } else setError("Please Enter Valid Credentials...")
             setLoading(false);
         } catch (error) {
             setError(error.message)
