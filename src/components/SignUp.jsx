@@ -42,13 +42,14 @@ function SignUp(){
     
     const otpHandler = async(data) =>{
         try {
-            setLoading(true);
+            // setLoading(true);
             const OTP = getValues("OTP")
             const verifyotp = await authService.OTPverify({userId, ...data, secret:OTP})
             if(verifyotp) {
                 const userData = await authService.getUser();
+                console.log(userData)
                 if(userData) dispatch(authlogIn(userData)); //971046
-                setLoading(false)
+                // setLoading(false)
                 navigate("/");
                 window.location.reload();
             }

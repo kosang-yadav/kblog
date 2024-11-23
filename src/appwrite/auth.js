@@ -23,9 +23,19 @@ export class AuthService{
 
     async OTPverify({userId, secret, email, password}){
         try {
-            const verified = this.account.updateVerification(userId, secret);
-            console.log(verified)
-            if (verified) return await this.logIn({email, password});
+            return await this.account.createSession(userId, secret);
+            // const tempSession = await this.account.createSession(userId, secret);
+            // if(tempSession){
+            //     console.log("otp verified and session created")
+            //     const noSession = await this.logOut();
+            //     if (noSession) console.log("session deleted");
+            //     if (noSession) return this.logIn( { email, password } );
+            // } else {
+            //     console.log(" Please Input a Email or OTP, you fool", secret);
+            // }
+
+            // .then( () =>  )
+            // .catch( () => 
         } catch (error) {
             throw error;
         }
