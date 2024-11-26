@@ -13,33 +13,33 @@ export class AuthService{
         this.account = new Account(this.client)
     }
     
-    async OTPsend({userId, email}){
-        try {
-            return await this.account.createEmailToken(userId, email);
-        } catch (error) {
-            throw error;
-        }
-    }
+    // async OTPsend({userId, email}){
+    //     try {
+    //         return await this.account.createEmailToken(userId, email);
+    //     } catch (error) {
+    //         throw error;
+    //     }
+    // }
 
-    async OTPverify({userId, secret, email, password}){
-        try {
-            return await this.account.createSession(userId, secret);
-            // const tempSession = await this.account.createSession(userId, secret);
-            // if(tempSession){
-            //     console.log("otp verified and session created")
-            //     const noSession = await this.logOut();
-            //     if (noSession) console.log("session deleted");
-            //     if (noSession) return this.logIn( { email, password } );
-            // } else {
-            //     console.log(" Please Input a Email or OTP, you fool", secret);
-            // }
+    // async OTPverify({userId, secret, email, password}){
+    //     try {
+    //         return await this.account.createSession(userId, secret);
+    //         // const tempSession = await this.account.createSession(userId, secret);
+    //         // if(tempSession){
+    //         //     console.log("otp verified and session created")
+    //         //     const noSession = await this.logOut();
+    //         //     if (noSession) console.log("session deleted");
+    //         //     if (noSession) return this.logIn( { email, password } );
+    //         // } else {
+    //         //     console.log(" Please Input a Email or OTP, you fool", secret);
+    //         // }
 
-            // .then( () =>  )
-            // .catch( () => 
-        } catch (error) {
-            throw error;
-        }
-    }
+    //         // .then( () =>  )
+    //         // .catch( () => 
+    //     } catch (error) {
+    //         throw error;
+    //     }
+    // }
 
     async createAccount({email, password, name}){
         try{
@@ -51,15 +51,10 @@ export class AuthService{
             //     return userAccount;
             // }
             
-                // Email OTP Method
 
-                //otp verifies
-            const userId = ID.unique()
-            const userAccount = await this.account.create(userId, email, password, name );
-            if (userAccount) {
-                await this.OTPsend({ userId, email });
-                return userAccount;
-            }
+
+            const userAccount = await this.account.create(ID.unique(), email, password, name );
+            if (userAccount) return await this.logIn({email, password});
 
             // const verified = this.OTPverify({userId, secret});
             // if(verified) {
