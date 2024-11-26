@@ -17,7 +17,7 @@ export default function AllPosts(){
 
     return !loading ? (
         <div className=" w-fit sm:w-full py-8 min-h-screen text-right">
-            <h1 className=" text-6xl sm:text-8xl mx-2 font-semibold">Everyone's Posts </h1>
+            <h1 className=" text-6xl sm:text-8xl mx-2 pr-5 font-semibold">Everyone's Posts </h1>
             <Container>
                 <div className="flex flex-wrap items-center mt-14">
                     { posts.map( (post) => (
