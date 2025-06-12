@@ -106,7 +106,7 @@ export class DatabaseService{
 
     getFilePreview(fileId){
         try {
-            return this.bucket.getFilePreview(
+            return this.bucket.getFileView(
                 config.appwriteBucketId,
                 fileId
             )
